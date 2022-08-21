@@ -1,21 +1,16 @@
 package main
 
-import "fmt"
+import "github.com/gofiber/fiber/v2"
 
 func main() {
-	fizzBuzz(30)
-}
+	app := fiber.New()
 
-func fizzBuzz(data int) {
-	for i := 1; i <= data; i++ {
-		if i%3 == 0 && i%5 == 0 {
-			fmt.Println("FizzBuzz", i)
-		} else if i%3 == 0 {
-			fmt.Println("Fizz", i)
-		} else if i%5 == 0 {
-			fmt.Println("Buzz", i)
-		} else {
-			fmt.Println(i)
-		}
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Hello, World!")
+	})
+
+	err := app.Listen(":3000")
+	if err != nil {
+		return
 	}
 }
