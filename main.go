@@ -16,6 +16,8 @@ func main() {
 		return c.SendString("Hello User")
 	})
 
+	app.Get("/userauth")
+
 	err := app.Listen(":3000")
 	if err != nil {
 		return
