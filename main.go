@@ -22,6 +22,7 @@ func main() {
 	app.Get("/userauth")
 	app.Get("/userauth")
 	app.Get("/userauth")
+	app.Get("/userauth")
 
 	err := app.Listen(":3000")
 	if err != nil {
